@@ -7,9 +7,7 @@ mongoose.connection.on('error', (err) => {
 })
 async function mongoConnect() {
   console.log('Connecting Mongo Db...')
-  await mongoose.connect(
-    'mongodb+srv://root:toor@tltm.ozxq4.mongodb.net/tltm?retryWrites=true&w=majority'
-  )
+  await mongoose.connect(process.env.MONGO_URL)
 }
 async function mongoDisconnect() {
   await mongoose.disconnect()
